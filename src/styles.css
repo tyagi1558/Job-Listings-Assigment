@@ -1,0 +1,276 @@
+
+
+User
+/* General Styles */
+
+.App {
+    text-align: center;
+    padding: 20px;
+}
+
+.job-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.job-card {
+    width: calc(33.33% - 10px); /* Adjust width to fit three cards in a row with spacing */
+    margin-bottom: 20px;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
+
+/* Job Card Header Styles */
+
+.job-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.job-card-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.job-card-header .location,
+.job-card-header .job-role {
+    font-size: 16px;
+    color: #6c757d;
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Job Details Styles */
+
+.job-card-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.job-card .job-details .location,
+.job-card .job-details .salary,
+.job-card .job-details .experience {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.job-card .job-details .location span,
+.job-card .job-details .salary span,
+.job-card .job-details .experience span {
+    font-weight: bold;
+}
+
+/* Job Link Styles */
+
+.job-link {
+    font-size: 16px;
+    color: #007bff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.job-link:hover {
+    text-decoration: underline;
+}
+
+/* Apply Button Styles */
+
+.apply-button {
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    top: 10px;
+}
+
+/* Filter Button Styles */
+
+.filter-button {
+    display: block;
+    margin: 0 auto; /* Center the button horizontally */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+    background-color: #0056b3;
+}
+
+/* Job Image Styles */
+
+.job-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 12px;
+}
+
+.job-description {
+    font-size: 16px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    cursor: pointer; /* Add pointer cursor to indicate clickability */
+    transition: max-height 0.3s ease; /* Add smooth transition for expansion */
+    max-width: 80%; /* Limit text width */
+}
+
+.job-description.expanded {
+    -webkit-line-clamp: initial; /* Show all text when expanded */
+}
+
+.job-description-container {
+    position: relative; /* Position relative for button positioning */
+}
+
+.expand-button {
+    display: none; /* Initially hide the expand button */
+}
+
+@media (max-width: 768px) {
+    .job-description-container {
+        position: relative; /* Reset position */
+    }
+
+    .expand-button {
+        display: block; /* Display the expand button on small devices */
+        position: absolute; /* Position the expand button */
+        bottom: 0;
+        right: 0;
+    }
+
+    .job-description.expanded {
+        -webkit-line-clamp: initial; /* Show all text when expanded */
+        margin-bottom: 0; /* Adjust margin to avoid overlapping with the expand button */
+    }
+}
+
+
+
+/* Show More Button Styles */
+
+.show-more-button {
+    display: none; /* Hide button by default */
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+/* Show More Button Icon Styles */
+
+.show-more-button::before {
+    content: '▼'; /* Unicode character for down arrow */
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+/* Job Filters Styles */
+
+.job-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.job-filters input,
+.job-filters button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.job-filters input[type="text"],
+.job-filters input[type="number"] {
+    flex: 1;
+    min-width: 150px;
+}
+
+.job-filters button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.job-filters button:hover {
+    background-color: #0056b3;
+}
+
+/* General Styles */
+
+/* Your existing general styles here... */
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (portrait phones, less than 576px) */
+@media only screen and (max-width: 575.98px) {
+    .job-card {
+        width: 100%; /* Adjust width to occupy full width */
+        margin-bottom: 10px; /* Reduce margin for better spacing */
+    }
+}
+
+/* Medium devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) {
+    .job-card {
+        width: calc(50% - 10px); /* Adjust width to fit two cards in a row with spacing */
+    }
+}
+
+/* Large devices (tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .job-card {
+        width: calc(33.33% - 10px); /* Revert to original width for three cards in a row */
+    }
+}
+
+/* Extra large devices (desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    /* Add specific styles for larger devices if needed */
+}
+
+/* Extra-extra large devices (large desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    /* Add specific styles for extra-large devices if needed */
+}
